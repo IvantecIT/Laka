@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваши данные</title>
+    <style>
+        body {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ваши данные</h1>
+
+    <button class="button" id="displayData"></button>
+    <button class="button" onclick="window.location.href='index.html'">+ Добавить ещё</button>
+
+    <script>
+        // Получаем данные из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const fio = urlParams.get('fio');
+        const age = urlParams.get('age');
+        const address = urlParams.get('address');
+
+        // Формируем строку с данными
+        const dataString = `ФИО: ${fio}, Возраст: ${age}, Место жительства: ${address}`;
+
+        // Отображаем данные на кнопке
+        document.getElementById('displayData').textContent = dataString;
+    </script>
+</body>
+</html>
